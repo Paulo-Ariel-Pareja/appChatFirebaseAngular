@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { ChatService } from './providers/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,5 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'appChatFirebaseAngular';
   
-  chats: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.chats = db.collection('chats').valueChanges();
-  }
+  constructor(private chatService: ChatService) {}
 }
